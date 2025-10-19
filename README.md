@@ -59,3 +59,7 @@ This feature transforms the fire alarm from a loud, impersonal warning into a pe
 -   **AI & Core Logic**:
     -   **Google Gemini 2.5 Flash (Vision)**: For the fire monitoring video analysis.
     -   **Google Gemini 2.5 Flash Native Audio (Live API)**: For the real-time AI dispatcher in the Distress Signal feature.
+
+## 6. Deployed
+
+Here is the link to the deployed application: https://service-13th-floor-fireguard-ai-805507396207.us-west1.run.app/
