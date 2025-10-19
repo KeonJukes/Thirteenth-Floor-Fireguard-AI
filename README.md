@@ -1,6 +1,6 @@
 # 13th Floor - Fireguard.ai
 
-![fire-logo-favicon](fire-logo-favicon.png)
+![fire-logo-favicon](13th-floor-logo.svg)
 
 ![Cerebral Valley Hackathon](https://img.shields.io/badge/Cerebral%20Valley-Gemini%20Hackathon-blue)
 ![Gemini API](https://img.shields.io/badge/Powered%20by-Gemini%20API-purple)
