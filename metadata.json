@@ -1,0 +1,7 @@
+{
+  "name": "13th Floor Fireguard.ai",
+  "description": "An advanced fire safety and resident management application for the 13th Floor building, powered by Fireguard.ai.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
