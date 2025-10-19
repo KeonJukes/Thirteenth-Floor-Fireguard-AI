@@ -7,7 +7,7 @@
 ![React](https://img.shields.io/badge/React-19-61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.2-3178C6)
 
-**A Next-Generation Fire Safety & Resident Management Application**
+**A Next-Generation Fire Safety for Resident Management Application**
 
 _Project created by **Keon Jukes** for the Cerebral Valley Gemini Hackathon._
 
