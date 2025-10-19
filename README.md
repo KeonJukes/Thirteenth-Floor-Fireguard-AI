@@ -59,7 +59,46 @@ This feature transforms the fire alarm from a loud, impersonal warning into a pe
 -   **AI & Core Logic**:
     -   **Google Gemini 2.5 Flash (Vision)**: For the fire monitoring video analysis.
     -   **Google Gemini 2.5 Flash Native Audio (Live API)**: For the real-time AI dispatcher in the Distress Signal feature.
+-  **Backend**: Oracle Cloud Infrastructure MySQL Heatwave DB
+  
+## 6. Database
 
-## 6. Deployed
+I used Oracle CLoud Infrastructure mySQL Heatwave DB for this project to persist data. To avoid going over the free tier, I have not connected it to the live deployment, but I will provide the schema if you want to try it out. Below is the table schema
+
+residents Table Schema
+
+```sql
+CREATE TABLE residents (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    apt_number VARCHAR(50) NOT NULL,
+    floor INT NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    tenants INT NOT NULL,
+    photo LONGTEXT, -- To store the Base64 encoded image string
+    emergency_contact_name VARCHAR(255),
+    emergency_contact_phone VARCHAR(20),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UNIQUE KEY unique_apt_floor (apt_number, floor) -- Optional: To prevent duplicate apartment entries
+);
+```
+
+Explanation of Columns:
+
+- id: A unique, auto-incrementing integer that serves as the primary key for the table.
+- name: Stores the resident's full name. VARCHAR(255) is a standard choice for names.
+- apt_number: Stores the apartment number. VARCHAR(50) is used because apartment numbers can be alphanumeric (e.g., "4B", "PH-1").
+- floor: An integer to store the floor number.
+- phone: Stores the resident's phone number. VARCHAR(20) is flexible enough for formatted numbers like (555) 123-4567.
+- tenants: An integer for the number of tenants.
+- photo: LONGTEXT is used here to accommodate the very long Base64 string that represents the uploaded image. For production applications, you might consider storing the image in a dedicated file storage service (like Google Cloud Storage or Amazon S3) and only saving the URL here, but LONGTEXT works well for this prototype.
+- emergency_contact_name / emergency_contact_phone: These fields are optional and can be NULL if the resident doesn't provide them.
+- created_at / updated_at: Timestamps that automatically track when a record is created and last modified. This is very useful for auditing and data management.
+- UNIQUE KEY (Optional): I've added an optional unique key constraint on apt_number and floor combined. This would prevent more than one registration for the same apartment, which might be a desirable business rule.
+
+You can run this SQL command in your MySQL database to create the table. Read Oracle and MySQL documentation if you run into issues
+
+## 7. Deployed
 
 Here is the link to the deployed application: https://service-13th-floor-fireguard-ai-805507396207.us-west1.run.app/
