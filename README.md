@@ -98,7 +98,3 @@ Explanation of Columns:
 - UNIQUE KEY (Optional): I've added an optional unique key constraint on apt_number and floor combined. This would prevent more than one registration for the same apartment, which might be a desirable business rule.
 
 You can run this SQL command in your MySQL database to create the table. Read Oracle and MySQL documentation if you run into issues
-
-## 7. Deployed
-
-Here is the link to the deployed application: https://service-13th-floor-fireguard-ai-805507396207.us-west1.run.app/
